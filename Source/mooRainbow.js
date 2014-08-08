@@ -26,7 +26,8 @@ var MooRainbow = new Class({
 		startColor: [255, 0, 0],
 		wheel: false,
 		onComplete: Class.empty,
-		onChange: Class.empty
+		onChange: Class.empty,
+		allowNull: false
 	},
 	
 	initialize: function(el, options) {
@@ -56,7 +57,7 @@ var MooRainbow = new Class({
 		this.pickerPos.x = this.snippet('curPos').l + this.snippet('curSize', 'int').w;
 		this.pickerPos.y = this.snippet('curPos').t + this.snippet('curSize', 'int').h;
 		
-		this.manualSet(this.options.startColor);
+		if( !this.options.allowNull ) { this.manualSet(this.options.startColor); }
 		
 		this.pickerPos.x = this.snippet('curPos').l + this.snippet('curSize', 'int').w;
 		this.pickerPos.y = this.snippet('curPos').t + this.snippet('curSize', 'int').h;
